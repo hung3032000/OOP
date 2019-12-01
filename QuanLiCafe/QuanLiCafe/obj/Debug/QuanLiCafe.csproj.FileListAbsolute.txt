@@ -8,3 +8,15 @@ E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.csproj.G
 E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.exe
 E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.pdb
 E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.QLyQuanCf.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\bin\Debug\QuanLiCafe.exe.config
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.exe
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.pdb
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\bin\Debug\QuanLiCafe.exe
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\bin\Debug\QuanLiCafe.pdb
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.dangnhap.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.fAccountInf.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.Properties.Resources.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.QLyQuanCf.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.fAdmin.resources

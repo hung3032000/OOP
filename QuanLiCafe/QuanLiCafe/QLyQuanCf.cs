@@ -26,5 +26,21 @@ namespace QuanLiCafe
         {
             this.Close();
         }
+
+        private void thôngTinToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fAccountInf f = new fAccountInf();
+          //  this.Hide();
+            f.ShowDialog();
+         //   this.Show();
+        }
+
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fAdmin f = new fAdmin();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
     }
 }
