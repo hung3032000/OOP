@@ -1,0 +1,10 @@
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\bin\Debug\QuanLiCafe.exe.config
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\bin\Debug\QuanLiCafe.exe
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\bin\Debug\QuanLiCafe.pdb
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.csprojResolveAssemblyReference.cache
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.dangnhap.resources
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.Properties.Resources.resources
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.csproj.GenerateResource.Cache
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.exe
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.pdb
+E:\destop cũ\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.QLyQuanCf.resources
