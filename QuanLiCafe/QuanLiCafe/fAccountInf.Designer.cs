@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txbUserName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.txbNameDisplayName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.txbPassWord = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.txbNewPass = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txbReEnterPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txbReEnterPass = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -61,32 +61,13 @@
             this.panel1.Size = new System.Drawing.Size(501, 51);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // txbUserName
             // 
-            this.panel2.Controls.Add(this.txbNameDisplayName);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(12, 69);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(501, 62);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.txbPassWord);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(12, 137);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(501, 62);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.txbNewPass);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(12, 215);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(501, 65);
-            this.panel4.TabIndex = 3;
+            this.txbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbUserName.Location = new System.Drawing.Point(209, 10);
+            this.txbUserName.Name = "txbUserName";
+            this.txbUserName.Size = new System.Drawing.Size(270, 29);
+            this.txbUserName.TabIndex = 4;
             // 
             // label1
             // 
@@ -98,6 +79,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập:";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txbNameDisplayName);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(12, 69);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(501, 62);
+            this.panel2.TabIndex = 1;
+            // 
+            // txbNameDisplayName
+            // 
+            this.txbNameDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNameDisplayName.Location = new System.Drawing.Point(209, 17);
+            this.txbNameDisplayName.Name = "txbNameDisplayName";
+            this.txbNameDisplayName.Size = new System.Drawing.Size(270, 29);
+            this.txbNameDisplayName.TabIndex = 3;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -107,6 +105,23 @@
             this.label2.Size = new System.Drawing.Size(128, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên hiểu thị:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.txbPassWord);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(12, 137);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(501, 62);
+            this.panel3.TabIndex = 2;
+            // 
+            // txbPassWord
+            // 
+            this.txbPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPassWord.Location = new System.Drawing.Point(209, 17);
+            this.txbPassWord.Name = "txbPassWord";
+            this.txbPassWord.Size = new System.Drawing.Size(270, 29);
+            this.txbPassWord.TabIndex = 2;
             // 
             // label3
             // 
@@ -118,39 +133,14 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Mật khẩu";
             // 
-            // label4
+            // panel4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 24);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Mật Khẩu Mới";
-            // 
-            // txbUserName
-            // 
-            this.txbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbUserName.Location = new System.Drawing.Point(209, 10);
-            this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(270, 29);
-            this.txbUserName.TabIndex = 4;
-            // 
-            // txbNameDisplayName
-            // 
-            this.txbNameDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNameDisplayName.Location = new System.Drawing.Point(209, 17);
-            this.txbNameDisplayName.Name = "txbNameDisplayName";
-            this.txbNameDisplayName.Size = new System.Drawing.Size(270, 29);
-            this.txbNameDisplayName.TabIndex = 3;
-            // 
-            // txbPassWord
-            // 
-            this.txbPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPassWord.Location = new System.Drawing.Point(209, 17);
-            this.txbPassWord.Name = "txbPassWord";
-            this.txbPassWord.Size = new System.Drawing.Size(270, 29);
-            this.txbPassWord.TabIndex = 2;
+            this.panel4.Controls.Add(this.txbNewPass);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Location = new System.Drawing.Point(12, 215);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(501, 65);
+            this.panel4.TabIndex = 3;
             // 
             // txbNewPass
             // 
@@ -161,6 +151,16 @@
             this.txbNewPass.TabIndex = 1;
             this.txbNewPass.TextChanged += new System.EventHandler(this.txbNewPass_TextChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 24);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Mật Khẩu Mới";
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.label5);
@@ -169,14 +169,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(501, 65);
             this.panel5.TabIndex = 4;
-            // 
-            // txbReEnterPass
-            // 
-            this.txbReEnterPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbReEnterPass.Location = new System.Drawing.Point(209, 21);
-            this.txbReEnterPass.Name = "txbReEnterPass";
-            this.txbReEnterPass.Size = new System.Drawing.Size(270, 29);
-            this.txbReEnterPass.TabIndex = 0;
             // 
             // label5
             // 
@@ -187,6 +179,14 @@
             this.label5.Size = new System.Drawing.Size(186, 24);
             this.label5.TabIndex = 1;
             this.label5.Text = "Nhập Lại Mật Khẩu";
+            // 
+            // txbReEnterPass
+            // 
+            this.txbReEnterPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbReEnterPass.Location = new System.Drawing.Point(209, 21);
+            this.txbReEnterPass.Name = "txbReEnterPass";
+            this.txbReEnterPass.Size = new System.Drawing.Size(270, 29);
+            this.txbReEnterPass.TabIndex = 0;
             // 
             // btnUpdate
             // 
@@ -220,7 +220,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fAccountInf";
-            this.Text = "fAccountInf";
+            this.Text = "Thông tin tài khoản";
             this.Load += new System.EventHandler(this.fAccountInf_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
