@@ -61,11 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dangnhap.cs">
+    <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="flogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dangnhap.Designer.cs">
-      <DependentUpon>dangnhap.cs</DependentUpon>
+    <Compile Include="flogin.Designer.cs">
+      <DependentUpon>flogin.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="fAccountInf.cs">
@@ -88,8 +89,8 @@
     <Compile Include="QLyQuanCf.Designer.cs">
       <DependentUpon>QLyQuanCf.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="dangnhap.resx">
-      <DependentUpon>dangnhap.cs</DependentUpon>
+    <EmbeddedResource Include="flogin.resx">
+      <DependentUpon>flogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fAccountInf.resx">
       <DependentUpon>fAccountInf.cs</DependentUpon>

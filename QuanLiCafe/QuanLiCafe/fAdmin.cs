@@ -17,7 +17,7 @@ namespace QuanLiCafe
         public fAdmin()
         {
             InitializeComponent();
-            LoadAccountList();
+          
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -34,12 +34,8 @@ namespace QuanLiCafe
         {
 
         }
-        void LoadAccountList()
-        {
-            string connectionStr = "Data Source=.\\sqlexpress;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
-            string query = " EXEC dbo.USP_GetAccountByUserName @userName";
-            DataProvider provider = new DataProvider();
-            dtgvAccount.DataSource = provider.ExecuteQuery(query, new object[] {"hoa"});
-        }
+
+        
+       
     }
 }

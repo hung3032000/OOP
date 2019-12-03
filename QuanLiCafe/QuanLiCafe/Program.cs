@@ -16,7 +16,7 @@ namespace QuanLiCafe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new dangnhap());
+            Application.Run(new flogin());
         }
     }
 }

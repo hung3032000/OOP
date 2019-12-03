@@ -104,3 +104,8 @@ END
 GO
 
 EXEC dbo.USP_GetAccountByUserName @userName = N'hung' -- nvarchar(100)
+GO
+
+
+--SELECT COUNT(*) FROM dbo.Account WHERE UserName = N'hung' AND PassWord = N'' OR 1=1 --2' or 1=1
+ 
