@@ -107,5 +107,24 @@ EXEC dbo.USP_GetAccountByUserName @userName = N'hung' -- nvarchar(100)
 GO
 
 
---SELECT COUNT(*) FROM dbo.Account WHERE UserName = N'hung' AND PassWord = N'' OR 1=1 --2' or 1=1
- 
+CREATE PROC USP_Login
+@passWord NVARCHAR(100), @userName NVARCHAR(100)
+AS	
+BEGIN
+	SELECT * FROM dbo.Account WHERE	UserName = @userName AND PassWord = @passWord
+END	
+GO
+DECLARE @i INT =0
+
+WHILE @i<=20
+BEGIN	
+INSERT dbo.TableFood( name)
+VALUES  ( N'Bàn '+ CAST(@i AS NVARCHAR(100)))
+		  SET @i=@i+1
+END	
+GO
+
+CREATE PROC USP_GetTableList
+AS SELECT * FROM dbo.TableFood
+GO
+EXEC dbo.USP_GetTableList

@@ -1,4 +1,5 @@
 ﻿using QuanLiCafe.DAO;
+using QuanLiCafe.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,7 +43,8 @@ namespace QuanLiCafe
             string passWord = txbpassWord.Text;
             if (Login(userName,passWord))
             {
-                QLyQuanCf f = new QLyQuanCf();
+                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
+                QLyQuanCf f = new QLyQuanCf(loginAccount);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();

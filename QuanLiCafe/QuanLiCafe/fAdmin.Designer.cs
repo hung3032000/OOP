@@ -901,6 +901,7 @@
             this.btnViewbill.TabIndex = 1;
             this.btnViewbill.Text = "Thống kê";
             this.btnViewbill.UseVisualStyleBackColor = true;
+            this.btnViewbill.Click += new System.EventHandler(this.btnViewbill_Click);
             // 
             // dtpkToDate
             // 
@@ -926,6 +927,7 @@
             // 
             // dtgvBill
             // 
+            this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBill.Location = new System.Drawing.Point(3, 3);
             this.dtgvBill.Name = "dtgvBill";

@@ -20,3 +20,15 @@ C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\Qu
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.csproj.GenerateResource.Cache
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.fAdmin.resources
 C:\Users\Administrator\Desktop\QuanLiQuanCafe\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.flogin.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\bin\Debug\QuanLiCafe.exe.config
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.exe
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.pdb
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.flogin.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.fAccountInf.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.fAdmin.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.Properties.Resources.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.QLyQuanCf.resources
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\obj\Debug\QuanLiCafe.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\bin\Debug\QuanLiCafe.exe
+C:\Users\Administrator\Desktop\QuanLiQuanCafe - Copy\QuanLiCafe\QuanLiCafe\bin\Debug\QuanLiCafe.pdb

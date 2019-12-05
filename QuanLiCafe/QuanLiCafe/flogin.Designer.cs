@@ -76,6 +76,7 @@
             this.txbuserName.Name = "txbuserName";
             this.txbuserName.Size = new System.Drawing.Size(204, 20);
             this.txbuserName.TabIndex = 1;
+            this.txbuserName.Text = "hung";
             // 
             // txbpassWord
             // 
@@ -83,6 +84,7 @@
             this.txbpassWord.Name = "txbpassWord";
             this.txbpassWord.Size = new System.Drawing.Size(204, 20);
             this.txbpassWord.TabIndex = 1;
+            this.txbpassWord.Text = "1";
             this.txbpassWord.UseSystemPasswordChar = true;
             // 
             // btnLogin
