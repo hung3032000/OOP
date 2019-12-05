@@ -66,6 +66,7 @@
             this.txbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbUserName.Location = new System.Drawing.Point(209, 10);
             this.txbUserName.Name = "txbUserName";
+            this.txbUserName.ReadOnly = true;
             this.txbUserName.Size = new System.Drawing.Size(270, 29);
             this.txbUserName.TabIndex = 4;
             // 
@@ -196,6 +197,7 @@
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Cập nhập";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnExit
             // 
