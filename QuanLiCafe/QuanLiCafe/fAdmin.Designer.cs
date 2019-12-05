@@ -37,7 +37,7 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
-            this.cbAcccountType = new System.Windows.Forms.ComboBox();
+            this.nbAccountType = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.txbDisplayName = new System.Windows.Forms.TextBox();
@@ -116,6 +116,7 @@
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbAccountType)).BeginInit();
             this.panel25.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
@@ -185,6 +186,7 @@
             this.btnShowAccount.TabIndex = 4;
             this.btnShowAccount.Text = "Xem";
             this.btnShowAccount.UseVisualStyleBackColor = true;
+            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnEditAccount
             // 
@@ -194,6 +196,7 @@
             this.btnEditAccount.TabIndex = 3;
             this.btnEditAccount.Text = "Sửa";
             this.btnEditAccount.UseVisualStyleBackColor = true;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnDeleteAccount
             // 
@@ -203,6 +206,7 @@
             this.btnDeleteAccount.TabIndex = 2;
             this.btnDeleteAccount.Text = "Xoá";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
             // btnAddAccount
             // 
@@ -212,6 +216,7 @@
             this.btnAddAccount.TabIndex = 1;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // panel23
             // 
@@ -232,24 +237,28 @@
             this.btnResetPassword.TabIndex = 5;
             this.btnResetPassword.Text = "Đặt lại mật khẩu";
             this.btnResetPassword.UseVisualStyleBackColor = true;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // panel24
             // 
-            this.panel24.Controls.Add(this.cbAcccountType);
+            this.panel24.Controls.Add(this.nbAccountType);
             this.panel24.Controls.Add(this.label10);
             this.panel24.Location = new System.Drawing.Point(6, 121);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(322, 43);
             this.panel24.TabIndex = 4;
             // 
-            // cbAcccountType
+            // nbAccountType
             // 
-            this.cbAcccountType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAcccountType.FormattingEnabled = true;
-            this.cbAcccountType.Location = new System.Drawing.Point(144, 10);
-            this.cbAcccountType.Name = "cbAcccountType";
-            this.cbAcccountType.Size = new System.Drawing.Size(162, 26);
-            this.cbAcccountType.TabIndex = 1;
+            this.nbAccountType.Location = new System.Drawing.Point(144, 13);
+            this.nbAccountType.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nbAccountType.Name = "nbAccountType";
+            this.nbAccountType.Size = new System.Drawing.Size(162, 20);
+            this.nbAccountType.TabIndex = 2;
             // 
             // label10
             // 
@@ -302,7 +311,6 @@
             this.txbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbUserName.Location = new System.Drawing.Point(144, 10);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.ReadOnly = true;
             this.txbUserName.Size = new System.Drawing.Size(162, 24);
             this.txbUserName.TabIndex = 0;
             // 
@@ -364,6 +372,7 @@
             this.btnShowTable.TabIndex = 4;
             this.btnShowTable.Text = "Xem";
             this.btnShowTable.UseVisualStyleBackColor = true;
+            this.btnShowTable.Click += new System.EventHandler(this.btnShowTable_Click);
             // 
             // btnEditTable
             // 
@@ -533,6 +542,7 @@
             this.btnShowCategory.TabIndex = 4;
             this.btnShowCategory.Text = "Xem";
             this.btnShowCategory.UseVisualStyleBackColor = true;
+            this.btnShowCategory.Click += new System.EventHandler(this.btnShowCategory_Click);
             // 
             // btnEditCategory
             // 
@@ -966,6 +976,7 @@
             this.panel23.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbAccountType)).EndInit();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
             this.panel26.ResumeLayout(false);
@@ -1087,7 +1098,6 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Button btnResetPassword;
         private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.ComboBox cbAcccountType;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.TextBox txbDisplayName;
@@ -1103,5 +1113,6 @@
         private System.Windows.Forms.DateTimePicker dtpkFromDate;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dtgvBill;
+        private System.Windows.Forms.NumericUpDown nbAccountType;
     }
 }

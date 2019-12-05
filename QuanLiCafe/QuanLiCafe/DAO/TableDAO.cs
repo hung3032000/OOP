@@ -43,5 +43,21 @@ namespace QuanLiCafe.DAO
             }
             return tableList;
         }
+        public List<Table> GetListTable()
+        {
+            List<Table> list = new List<Table>();
+
+            string query = "SELECT * FROM dbo.TableFood";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Table table = new Table(item);
+                list.Add(table);
+            }
+
+            return list;
+        }
     }
 }

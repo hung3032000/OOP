@@ -16,7 +16,7 @@ namespace QuanLiCafe
     public partial class fAdmin : Form
     {
         BindingSource foodList = new BindingSource();
-
+        BindingSource tableList = new BindingSource();
         BindingSource accountList = new BindingSource();
 
         public Account loginAccount;
@@ -29,14 +29,14 @@ namespace QuanLiCafe
         void LoadData()
         {
             dtgvFood.DataSource = foodList;
-            //      dtgvAccount.DataSource = accountList;
+            dtgvAccount.DataSource = accountList;
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadListFood();
-            //      LoadAccount();
+            LoadAccount();
             LoadCategoryIntoCombobox(cbFoodCategory);
             AddFoodBinding();
-            //            AddAccountBinding();
+            AddAccountBinding();
         }
         List<Food> SearchFoodByName(string name)
         {
@@ -44,16 +44,16 @@ namespace QuanLiCafe
 
             return listFood;
         }
-        /*  void AddAccountBinding()
-          {
-              txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
-              txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
-              numericUpDown1.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
-          }
-          void LoadAccount()
-          {
-              accountList.DataSource = AccountDAO.Instance.GetListAccount();
-          }*/
+        void AddAccountBinding()
+        {
+            txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
+            txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
+            nbAccountType.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
+        }
+        void LoadAccount()
+        {
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             LoadListFood();
@@ -71,7 +71,7 @@ namespace QuanLiCafe
 
         private void btnViewbill_Click(object sender, EventArgs e)
         {
-            // dtgvBill.DataSource = BillDAO.Instance.GetBillListByDateAndPage(dtpkFromDate.Value, dtpkToDate.Value/*, Convert.ToInt32(txbPageBill.Text)*/);
+           dtgvBill.DataSource = BillDAO.Instance.GetBillListByDate(dtpkFromDate.Value, dtpkToDate.Value);
         }
         void LoadDateTimePickerBill()
         {
@@ -83,6 +83,9 @@ namespace QuanLiCafe
         {
             dtgvBill.DataSource = BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
         }
+        #region food
+
+
         void LoadListFood()
         {
             foodList.DataSource = FoodDAO.Instance.GetListFood();
@@ -207,69 +210,129 @@ namespace QuanLiCafe
 
         private void btnSearchFood_Click(object sender, EventArgs e)
         {
-           foodList.DataSource= SearchFoodByName(txbSearchFoodName.Text);
+            foodList.DataSource = SearchFoodByName(txbSearchFoodName.Text);
+        }
+        #endregion
+        #region Account
+        void AddAccount(string userName, string displayName, int type)
+        {
+            if (loginAccount.UserName.Equals(userName))
+            {
+                MessageBox.Show("Vui lòng đừng them chính bạn chứ");
+                return;
+            }
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Thêm tài khoản thành công");
+            }
+            else
+            {
+                MessageBox.Show("Thêm tài khoản thất bại");
+            }
+
+            LoadAccount();
+        }
+
+        void EditAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Cập nhật tài khoản thành công");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật tài khoản thất bại");
+            }
+
+            LoadAccount();
+        }
+
+        void DeleteAccount(string userName)
+        {
+            if (loginAccount.UserName.Equals(userName))
+            {
+                MessageBox.Show("Vui lòng đừng xóa chính bạn chứ");
+                return;
+            }
+            if (AccountDAO.Instance.DeleteAccount(userName))
+            {
+                MessageBox.Show("Xóa tài khoản thành công");
+            }
+            else
+            {
+                MessageBox.Show("Xóa tài khoản thất bại");
+            }
+
+            LoadAccount();
+        }
+
+        void ResetPass(string userName)
+        {
+            if (AccountDAO.Instance.ResetPassword(userName))
+            {
+                MessageBox.Show("Đặt lại mật khẩu thành công");
+            }
+            else
+            {
+                MessageBox.Show("Đặt lại mật khẩu thất bại");
+            }
+        }
+
+        private void btnShowAccount_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
+        }
+
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            string displayName = txbDisplayName.Text;
+            int type = (int)nbAccountType.Value;
+
+            EditAccount(userName, displayName, type);
+        }
+
+        private void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+
+            DeleteAccount(userName);
+        }
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            string displayName = txbDisplayName.Text;
+            int type = (int)nbAccountType.Value;
+
+            AddAccount(userName, displayName, type);
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+
+            ResetPass(userName);
+        }
+        void LoadListTable()
+        {
+            dtgvTable.DataSource = TableDAO.Instance.LoadTableList();
+        }
+        private void btnShowTable_Click(object sender, EventArgs e)
+        {
+            LoadListTable();
+        }
+        void LoadListFoodCategory()
+        {
+            dtgvCategory.DataSource = CategoryDAO.Instance.GetListCategory();
+        }
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            LoadListFoodCategory();
         }
     }
-
-    /* 
-           void AddAccount(string userName, string displayName, int type)
-           {
-               if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
-               {
-                   MessageBox.Show("Thêm tài khoản thành công");
-               }
-               else
-               {
-                   MessageBox.Show("Thêm tài khoản thất bại");
-               }
-
-               LoadAccount();
-           }
-
-           void EditAccount(string userName, string displayName, int type)
-           {
-               if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
-               {
-                   MessageBox.Show("Cập nhật tài khoản thành công");
-               }
-               else
-               {
-                   MessageBox.Show("Cập nhật tài khoản thất bại");
-               }
-
-               LoadAccount();
-           }
-
-           void DeleteAccount(string userName)
-           {
-               if (loginAccount.UserName.Equals(userName))
-               {
-                   MessageBox.Show("Vui lòng đừng xóa chính bạn chứ");
-                   return;
-               }
-               if (AccountDAO.Instance.DeleteAccount(userName))
-               {
-                   MessageBox.Show("Xóa tài khoản thành công");
-               }
-               else
-               {
-                   MessageBox.Show("Xóa tài khoản thất bại");
-               }
-
-               LoadAccount();
-           }
-
-           void ResetPass(string userName)
-           {
-               if (AccountDAO.Instance.ResetPassword(userName))
-               {
-                   MessageBox.Show("Đặt lại mật khẩu thành công");
-               }
-               else
-               {
-                   MessageBox.Show("Đặt lại mật khẩu thất bại");
-               }
-           }*/
+    #endregion
+   
 }
 
 
