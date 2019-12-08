@@ -45,7 +45,7 @@ namespace QuanLiCafe.DAO
         }
         public void CheckOut(int id, float totalPrice)
         {
-            string query = "UPDATE dbo.Bill SET dateCheckOut = GETDATE(), status = 1, " + "totalPrice = " + totalPrice + " WHERE id = " + id;
+            string query = "UPDATE dbo.Bill SET dateCheckOut = GETDATE(), status = 1, " + "totalPrice = " + totalPrice+  " WHERE id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     

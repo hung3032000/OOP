@@ -51,7 +51,7 @@ namespace QuanLiCafe
             }
             else
             {
-                MessageBox.Show("sai ten dang nhap hoac mat khau");
+                MessageBox.Show("Sai Tên Đăng Nhập Hoặc Mật Khẩu");
             }
 
         }

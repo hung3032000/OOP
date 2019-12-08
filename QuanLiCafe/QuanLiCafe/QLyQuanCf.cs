@@ -26,10 +26,10 @@ namespace QuanLiCafe
 
         public QLyQuanCf(Account acc)
         {
-           InitializeComponent();
-           this.LoginAccount = acc;
-           LoadTable();
-           LoadCategory();
+            InitializeComponent();
+            this.LoginAccount = acc;
+            LoadTable();
+            LoadCategory();
         }
 
         #region Method
@@ -92,7 +92,7 @@ namespace QuanLiCafe
                 lsvBill.Items.Add(lsvItem);
             }
             CultureInfo culture = new CultureInfo("vi-VN");
-            txbTotalPrice.Text = totalPrice.ToString("c",culture);
+            txbTotalPrice.Text = totalPrice.ToString("c", culture);
         }
         void LoadComboboxTable(ComboBox cb)
         {
@@ -135,9 +135,46 @@ namespace QuanLiCafe
             f.InsertFood += f_InsertFood;
             f.DeleteFood += f_DeleteFood;
             f.UpdateFood += f_UpdateFood;
+            f.UpdateTable += f_UpdateTable;
+            f.InsertTable += F_InsertTable;
+            f.DeleteTable += F_DeleteTable;
+            f.InsertCategory += F_InsertCategory;
+            f.UpdateCategory += F_UpdateCategory;
+            f.DeleteCategory += F_DeleteCategory;
             f.ShowDialog();
-           
+
         }
+
+        private void F_DeleteCategory(object sender, EventArgs e)
+        {
+            LoadCategory();
+        }
+
+        private void F_UpdateCategory(object sender, EventArgs e)
+        {
+            LoadCategory();
+        }
+
+        private void F_InsertCategory(object sender, EventArgs e)
+        {
+            LoadCategory();
+        }
+
+        private void F_DeleteTable(object sender, EventArgs e)
+        {
+            LoadTable();
+        }
+
+        private void F_InsertTable(object sender, EventArgs e)
+        {
+            LoadTable();
+        }
+
+        private void f_UpdateTable(object sender, EventArgs e)
+        {
+            LoadTable();
+        }
+
         void f_UpdateFood(object sender, EventArgs e)
         {
             LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
@@ -162,7 +199,7 @@ namespace QuanLiCafe
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int id=0;
+            int id = 0;
             ComboBox cb = sender as ComboBox;
             if (cb.SelectedItem == null)
             {
@@ -174,54 +211,72 @@ namespace QuanLiCafe
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Table table = lsvBill.Tag as Table;
 
-            Table table = lsvBill.Tag as Table;
+                if (table == null)
+                {
+                    MessageBox.Show("Hãy chọn bàn");
+                    return;
+                }
+                int idBill = BillDAO.Instance.GetUncheckBillByTableID(table.ID);
+                int foodID = (cbFood.SelectedItem as Food).ID;
+                int count = (int)nmFoodCount.Value;
+                if (idBill == -1)
+                {
+                    BillDAO.Instance.InsertBill(table.ID);
+                    BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), foodID, count);
+                }
+                else
+                {
+                    BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count);
+                }
+                ShowBill(table.ID);
+                LoadTable();
+            }
+            catch (Exception Ex)
+            {
 
-            if (table == null)
-            {
-                MessageBox.Show("Hãy chọn bàn");
-                return;
+                MessageBox.Show("Chưa có món\n" , "Đã có lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            int idBill = BillDAO.Instance.GetUncheckBillByTableID(table.ID);
-            int foodID = (cbFood.SelectedItem as Food).ID;
-            int count = (int)nmFoodCount.Value;
-            if (idBill == -1)
-            {
-                BillDAO.Instance.InsertBill(table.ID);
-                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), foodID, count);
-            }
-            else
-            {
-                BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count);
-            }
-            ShowBill(table.ID);
-            LoadTable();
+
+
 
         }
-       
+
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            Table table = lsvBill.Tag as Table;
-
-            int idBill = BillDAO.Instance.GetUncheckBillByTableID(table.ID);
-
-
-            double totalPrice = Convert.ToDouble(txbTotalPrice.Text.Split(',')[0]);
-
-
-            if (idBill != -1)
+            try
             {
-                if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0}", table.Name, totalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
-                {
-                    BillDAO.Instance.CheckOut(idBill, (float)totalPrice);
-                    ShowBill(table.ID);
+                Table table = lsvBill.Tag as Table;
 
-                    LoadTable();
+                int idBill = BillDAO.Instance.GetUncheckBillByTableID(table.ID);
+
+
+                double totalPrice = Convert.ToDouble(txbTotalPrice.Text.Split(',')[0]);
+
+
+                if (idBill != -1)
+                {
+                    if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0}", table.Name, totalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        BillDAO.Instance.CheckOut(idBill, (float)totalPrice);
+                        ShowBill(table.ID);
+
+                        LoadTable();
+                    }
                 }
             }
+            catch (Exception Ex)
+            {
+
+                MessageBox.Show("Lỗi  !\n" + Ex.Message, "Đã có lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
         #endregion
 
-        
+
     }
 }

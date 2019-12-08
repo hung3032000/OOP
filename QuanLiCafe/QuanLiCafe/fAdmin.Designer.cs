@@ -55,13 +55,13 @@
             this.btnAddTable = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.cbTableStatus = new System.Windows.Forms.ComboBox();
+            this.txbTableStatus = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.txbTableName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbTableID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.dtgvTable = new System.Windows.Forms.DataGridView();
@@ -73,7 +73,7 @@
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbFoodCategory = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.txbCategoryID = new System.Windows.Forms.TextBox();
@@ -259,6 +259,7 @@
             this.nbAccountType.Name = "nbAccountType";
             this.nbAccountType.Size = new System.Drawing.Size(162, 20);
             this.nbAccountType.TabIndex = 2;
+            this.nbAccountType.ValueChanged += new System.EventHandler(this.nbAccountType_ValueChanged);
             // 
             // label10
             // 
@@ -334,6 +335,7 @@
             // 
             // dtgvAccount
             // 
+            this.dtgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvAccount.Location = new System.Drawing.Point(3, 3);
             this.dtgvAccount.Name = "dtgvAccount";
@@ -382,6 +384,7 @@
             this.btnEditTable.TabIndex = 3;
             this.btnEditTable.Text = "Sửa";
             this.btnEditTable.UseVisualStyleBackColor = true;
+            this.btnEditTable.Click += new System.EventHandler(this.btnEditTable_Click);
             // 
             // btnDeleteTable
             // 
@@ -391,6 +394,7 @@
             this.btnDeleteTable.TabIndex = 2;
             this.btnDeleteTable.Text = "Xoá";
             this.btnDeleteTable.UseVisualStyleBackColor = true;
+            this.btnDeleteTable.Click += new System.EventHandler(this.btnDeleteTable_Click);
             // 
             // btnAddTable
             // 
@@ -400,6 +404,7 @@
             this.btnAddTable.TabIndex = 1;
             this.btnAddTable.Text = "Thêm";
             this.btnAddTable.UseVisualStyleBackColor = true;
+            this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
             // panel14
             // 
@@ -413,21 +418,20 @@
             // 
             // panel21
             // 
-            this.panel21.Controls.Add(this.cbTableStatus);
+            this.panel21.Controls.Add(this.txbTableStatus);
             this.panel21.Controls.Add(this.label9);
             this.panel21.Location = new System.Drawing.Point(6, 121);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(322, 43);
             this.panel21.TabIndex = 4;
             // 
-            // cbTableStatus
+            // txbTableStatus
             // 
-            this.cbTableStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTableStatus.FormattingEnabled = true;
-            this.cbTableStatus.Location = new System.Drawing.Point(144, 10);
-            this.cbTableStatus.Name = "cbTableStatus";
-            this.cbTableStatus.Size = new System.Drawing.Size(162, 26);
-            this.cbTableStatus.TabIndex = 1;
+            this.txbTableStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTableStatus.Location = new System.Drawing.Point(144, 6);
+            this.txbTableStatus.Name = "txbTableStatus";
+            this.txbTableStatus.Size = new System.Drawing.Size(162, 29);
+            this.txbTableStatus.TabIndex = 2;
             // 
             // label9
             // 
@@ -469,21 +473,21 @@
             // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.textBox3);
+            this.panel19.Controls.Add(this.txbTableID);
             this.panel19.Controls.Add(this.label6);
             this.panel19.Location = new System.Drawing.Point(6, 3);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(322, 43);
             this.panel19.TabIndex = 1;
             // 
-            // textBox3
+            // txbTableID
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(144, 10);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(162, 24);
-            this.textBox3.TabIndex = 0;
+            this.txbTableID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTableID.Location = new System.Drawing.Point(144, 10);
+            this.txbTableID.Name = "txbTableID";
+            this.txbTableID.ReadOnly = true;
+            this.txbTableID.Size = new System.Drawing.Size(162, 24);
+            this.txbTableID.TabIndex = 0;
             // 
             // label6
             // 
@@ -505,6 +509,7 @@
             // 
             // dtgvTable
             // 
+            this.dtgvTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvTable.Location = new System.Drawing.Point(3, 3);
             this.dtgvTable.Name = "dtgvTable";
@@ -552,6 +557,7 @@
             this.btnEditCategory.TabIndex = 3;
             this.btnEditCategory.Text = "Sửa";
             this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
             // btnDeleteCategory
             // 
@@ -561,6 +567,7 @@
             this.btnDeleteCategory.TabIndex = 2;
             this.btnDeleteCategory.Text = "Xoá";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // btnAddCategory
             // 
@@ -570,6 +577,7 @@
             this.btnAddCategory.TabIndex = 1;
             this.btnAddCategory.Text = "Thêm";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // panel13
             // 
@@ -582,20 +590,20 @@
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.textBox2);
+            this.panel16.Controls.Add(this.txbFoodCategory);
             this.panel16.Controls.Add(this.label7);
             this.panel16.Location = new System.Drawing.Point(6, 62);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(322, 53);
             this.panel16.TabIndex = 2;
             // 
-            // textBox2
+            // txbFoodCategory
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(144, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(162, 24);
-            this.textBox2.TabIndex = 0;
+            this.txbFoodCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbFoodCategory.Location = new System.Drawing.Point(144, 10);
+            this.txbFoodCategory.Name = "txbFoodCategory";
+            this.txbFoodCategory.Size = new System.Drawing.Size(162, 24);
+            this.txbFoodCategory.TabIndex = 0;
             // 
             // label7
             // 
@@ -645,6 +653,7 @@
             // 
             // dtgvCategory
             // 
+            this.dtgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvCategory.Location = new System.Drawing.Point(3, 3);
             this.dtgvCategory.Name = "dtgvCategory";
@@ -880,6 +889,7 @@
             // 
             // dtgvFood
             // 
+            this.dtgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvFood.Location = new System.Drawing.Point(3, 3);
             this.dtgvFood.Name = "dtgvFood";
@@ -969,6 +979,7 @@
             this.ClientSize = new System.Drawing.Size(726, 464);
             this.Controls.Add(this.tcAdmin);
             this.Name = "fAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.fAdmin_Load);
             this.tabPage1.ResumeLayout(false);
@@ -1066,13 +1077,12 @@
         private System.Windows.Forms.Button btnAddTable;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.ComboBox cbTableStatus;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.TextBox txbTableName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txbTableID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.DataGridView dtgvTable;
@@ -1083,7 +1093,7 @@
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbFoodCategory;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.TextBox txbCategoryID;
@@ -1114,5 +1124,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dtgvBill;
         private System.Windows.Forms.NumericUpDown nbAccountType;
+        private System.Windows.Forms.TextBox txbTableStatus;
     }
 }

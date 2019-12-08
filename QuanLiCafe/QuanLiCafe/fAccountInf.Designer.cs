@@ -123,6 +123,7 @@
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(270, 29);
             this.txbPassWord.TabIndex = 2;
+            this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -150,6 +151,7 @@
             this.txbNewPass.Name = "txbNewPass";
             this.txbNewPass.Size = new System.Drawing.Size(270, 29);
             this.txbNewPass.TabIndex = 1;
+            this.txbNewPass.UseSystemPasswordChar = true;
             this.txbNewPass.TextChanged += new System.EventHandler(this.txbNewPass_TextChanged);
             // 
             // label4
@@ -188,6 +190,7 @@
             this.txbReEnterPass.Name = "txbReEnterPass";
             this.txbReEnterPass.Size = new System.Drawing.Size(270, 29);
             this.txbReEnterPass.TabIndex = 0;
+            this.txbReEnterPass.UseSystemPasswordChar = true;
             // 
             // btnUpdate
             // 

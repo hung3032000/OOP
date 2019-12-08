@@ -13,7 +13,7 @@ namespace QuanLiCafe.DAO
     {
         private static DataProvider instance;
 
-        private string coneectionStr = "Data Source=.\\sqlexpress;Initial Catalog=QuanLyQuanCf;Integrated Security=True";
+        private string coneectionStr = "Data Source=.\\sqlexpress;Initial Catalog=QuanLyQuancoffe;Integrated Security=True";
 
         internal static DataProvider Instance
         {

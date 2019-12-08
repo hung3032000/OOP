@@ -32,17 +32,9 @@ namespace QuanLiCafe.DAO
         private AccountDAO() {}
         public bool Login(string userName, string passWorrd)
         {
-            byte[] temp = ASCIIEncoding.ASCII.GetBytes(passWorrd);
-            byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
-
-            string hasPass = "";
-
-            foreach (byte item in hasData)
-            {
-                hasPass += item;
-            }
+          
             string query = " USP_Login @passWord , @userName ";
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] {hasPass,userName}); 
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] {passWorrd,userName}); 
             return result.Rows.Count >0;
         }
         public DataTable GetListAccount()
@@ -68,7 +60,7 @@ namespace QuanLiCafe.DAO
         }
         public bool InsertAccount(string name, string displayName, int type)
         {
-            string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, Type, password )VALUES  ( N'{0}', N'{1}', {2}, N'{3}')", name, displayName, type, "1962026656160185351301320480154111117132155");
+            string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, Type, password )VALUES  ( N'{0}', N'{1}', {2}, N'{3}')", name, displayName, type, "1");
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
@@ -91,7 +83,7 @@ namespace QuanLiCafe.DAO
 
         public bool ResetPassword(string name)
         {
-            string query = string.Format("update account set password = N'1962026656160185351301320480154111117132155' where UserName = N'{0}'", name);
+            string query = string.Format("update account set password = N'1' where UserName = N'{0}'", name);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;

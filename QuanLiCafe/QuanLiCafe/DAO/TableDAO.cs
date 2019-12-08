@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLiCafe.DAO
 {
@@ -31,7 +32,7 @@ namespace QuanLiCafe.DAO
         }
         public static int TableWidth = 50;
         public static int TableHeight = 50;
-        private TableDAO() {}
+        private TableDAO() { }
         public List<Table> LoadTableList()
         {
             List<Table> tableList = new List<Table>();
@@ -59,5 +60,48 @@ namespace QuanLiCafe.DAO
 
             return list;
         }
+        public Table GetStatusByID(int id)
+        {
+            Table status = null;
+
+            string query = "SELECT * FROM dbo.TableFood WHERE id = " + id;
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                status = new Table(item);
+                return status;
+            }
+
+            return status;
+        }
+        public bool InsertTable(string name)
+        {
+            string query = string.Format("INSERT dbo.TableFood (name) VALUES  ( N'{0}')", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool UpdateTable(int id, string status)
+        {
+            string query = string.Format("UPDATE dbo.TableFood SET status = N'{0}' WHERE id = {1}", status, id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool DeleteTable(int id)
+        {
+
+            string query = string.Format("Delete  where id = {0}", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+
     }
 }
+
+
