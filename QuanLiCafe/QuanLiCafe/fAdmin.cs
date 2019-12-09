@@ -142,21 +142,29 @@ namespace QuanLiCafe
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
-            string name = txbFoodName.Text;
-            int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
-            float price = (float)nmFoodPrice.Value;
+            try
+            {
+                string name = txbFoodName.Text;
+                int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
+                float price = (float)nmFoodPrice.Value;
 
-            if (FoodDAO.Instance.InsertFood(name, categoryID, price))
-            {
-                MessageBox.Show("Thêm món thành công");
-                LoadListFood();
-                if (insertFood != null)
-                    insertFood(this, new EventArgs());
+                if (FoodDAO.Instance.InsertFood(name, categoryID, price))
+                {
+                    MessageBox.Show("Thêm món thành công");
+                    LoadListFood();
+                    if (insertFood != null)
+                        insertFood(this, new EventArgs());
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi thêm thức ăn");
+                }
             }
-            else
+            catch (Exception )
             {
-                MessageBox.Show("Có lỗi khi thêm thức ăn");
+                MessageBox.Show("Không có trong danh mục\n" , "Đã có lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
 
         private void btnDeleteFood_Click(object sender, EventArgs e)
@@ -225,26 +233,26 @@ namespace QuanLiCafe
         {
             try
             {
- if (loginAccount.UserName.Equals(userName))
-            {
-                MessageBox.Show("Vui lòng đừng them chính bạn chứ");
-                return;
-            }
-            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
-            {
-                MessageBox.Show("Thêm tài khoản thành công");
-            }
-            else
-            {
-                MessageBox.Show("Thêm tài khoản thất bại");
-            }
+                if (loginAccount.UserName.Equals(userName))
+                {
+                    MessageBox.Show("Vui lòng đừng thêm chính bạn chứ");
+                    return;
+                }
+                if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
+                {
+                    MessageBox.Show("Thêm tài khoản thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm tài khoản thất bại");
+                }
 
-            LoadAccount();
+                LoadAccount();
             }
             catch (Exception Ex)
             {
 
-                MessageBox.Show("Đã tồn tại tài khoản" , "Đã có lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đã tồn tại tài khoản", "Đã có lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
@@ -374,11 +382,10 @@ namespace QuanLiCafe
         private void btnAddTable_Click(object sender, EventArgs e)
         {
             string name = txbTableName.Text;
-            //  string status = cbTableStatus
-
+            string status = txbTableStatus.Text;
             if (TableDAO.Instance.InsertTable(name))
             {
-                MessageBox.Show("Thêm ban thành công");
+                MessageBox.Show("Thêm bàn thành công");
                 if (insertTable != null)
                 {
                     insertTable(this, new EventArgs());
@@ -387,7 +394,7 @@ namespace QuanLiCafe
             }
             else
             {
-                MessageBox.Show("Có lỗi khi thêm ban");
+                MessageBox.Show("Có lỗi khi thêm bàn");
             }
         }
         private void btnEditTable_Click(object sender, EventArgs e)
@@ -395,9 +402,9 @@ namespace QuanLiCafe
             string name = txbTableName.Text;
             string status = txbTableStatus.Text;
             int id = Convert.ToInt32(txbTableID.Text);
-            if (TableDAO.Instance.UpdateTable(id, status))
+            if (TableDAO.Instance.UpdateTable(id, status, name))
             {
-                MessageBox.Show("sua ban thành công");
+                MessageBox.Show("Sủa bàn thành công");
 
                 if (updateTable != null)
                 {
@@ -407,7 +414,7 @@ namespace QuanLiCafe
             }
             else
             {
-                MessageBox.Show("Có lỗi khi sua ban");
+                MessageBox.Show("Có lỗi khi sửa bàn");
             }
         }
 
@@ -420,7 +427,7 @@ namespace QuanLiCafe
                 int id = Convert.ToInt32(txbTableID.Text);
                 if (TableDAO.Instance.DeleteTable(id))
                 {
-                    MessageBox.Show("xoa ban thành công");
+                    MessageBox.Show("Xoá bàn thành công");
 
                     if (deleteTable != null)
                     {
@@ -430,7 +437,7 @@ namespace QuanLiCafe
                 }
                 else
                 {
-                    MessageBox.Show("Có lỗi khi xoa ban");
+                    MessageBox.Show("Có lỗi khi xoá bàn");
                 }
             }
             catch (Exception Ex)
@@ -462,14 +469,15 @@ namespace QuanLiCafe
             string name = txbFoodCategory.Text;
             if (CategoryDAO.Instance.InsertCategory(name))
             {
-                MessageBox.Show("Thêm món thành công");
-                LoadListFoodCategory();
+                MessageBox.Show("Thêm danh mục thành công");
+
                 if (insertCategory != null)
                     insertCategory(this, new EventArgs());
+                LoadListFoodCategory();
             }
             else
             {
-                MessageBox.Show("Có lỗi khi thêm thức ăn");
+                MessageBox.Show("Có lỗi khi thêm danh mục");
             }
         }
         private event EventHandler insertCategory;
@@ -484,14 +492,14 @@ namespace QuanLiCafe
             int id = Convert.ToInt32(txbCategoryID.Text);
             if (CategoryDAO.Instance.UpdateCategory(name, id))
             {
-                MessageBox.Show("Thêm món thành công");
+                MessageBox.Show("Thêm danh mục thành công");
                 LoadListFoodCategory();
                 if (updateCategory != null)
                     updateCategory(this, new EventArgs());
             }
             else
             {
-                MessageBox.Show("Có lỗi khi thêm thức ăn");
+                MessageBox.Show("Có lỗi khi thêm danh mục");
             }
         }
         private event EventHandler updateCategory;
@@ -507,14 +515,14 @@ namespace QuanLiCafe
                 int id = Convert.ToInt32(txbCategoryID.Text);
                 if (CategoryDAO.Instance.DeleteCategory(id))
                 {
-                    MessageBox.Show("Xóa món thành công");
+                    MessageBox.Show("Xóa danh mục thành công");
                     if (deleteCategory != null)
                         deleteCategory(this, new EventArgs());
                     LoadListFoodCategory();
                 }
                 else
                 {
-                    MessageBox.Show("Có lỗi khi xóa thức ăn");
+                    MessageBox.Show("Có lỗi khi xóa danh mục");
                 }
             }
             catch (Exception Ex)

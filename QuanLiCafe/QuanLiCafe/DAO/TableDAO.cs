@@ -30,8 +30,8 @@ namespace QuanLiCafe.DAO
                 TableDAO.instance = value;
             }
         }
-        public static int TableWidth = 50;
-        public static int TableHeight = 50;
+        public static int TableWidth = 80;
+        public static int TableHeight = 80;
         private TableDAO() { }
         public List<Table> LoadTableList()
         {
@@ -84,9 +84,9 @@ namespace QuanLiCafe.DAO
             return result > 0;
         }
 
-        public bool UpdateTable(int id, string status)
+        public bool UpdateTable(int id, string status,string name)
         {
-            string query = string.Format("UPDATE dbo.TableFood SET status = N'{0}' WHERE id = {1}", status, id);
+            string query = string.Format("UPDATE dbo.TableFood SET status = N'{0}',name = N'{1}' WHERE id = N'{2}'", status, name, id);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
@@ -94,8 +94,7 @@ namespace QuanLiCafe.DAO
 
         public bool DeleteTable(int id)
         {
-
-            string query = string.Format("Delete  where id = {0}", id);
+            string query = string.Format("Delete TableFood where id = {0}", id);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

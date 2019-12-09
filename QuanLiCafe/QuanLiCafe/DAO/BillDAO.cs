@@ -54,8 +54,6 @@ namespace QuanLiCafe.DAO
         {
             return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
         }
-       
-       
 
         public int GetMaxIDBill()
         {

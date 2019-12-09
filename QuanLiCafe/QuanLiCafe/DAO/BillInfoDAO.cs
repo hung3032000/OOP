@@ -49,5 +49,6 @@ namespace QuanLiCafe.DAO
         {
             DataProvider.Instance.ExecuteQuery("delete dbo.BillInfo WHERE idFood = " + id);
         }
+       
     }
 }

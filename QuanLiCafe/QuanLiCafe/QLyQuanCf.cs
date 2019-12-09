@@ -252,14 +252,12 @@ namespace QuanLiCafe
                 Table table = lsvBill.Tag as Table;
 
                 int idBill = BillDAO.Instance.GetUncheckBillByTableID(table.ID);
-
-
                 double totalPrice = Convert.ToDouble(txbTotalPrice.Text.Split(',')[0]);
 
 
                 if (idBill != -1)
                 {
-                    if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0}", table.Name, totalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                    if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0}, Tổng tiền là: {1}", table.Name, totalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                     {
                         BillDAO.Instance.CheckOut(idBill, (float)totalPrice);
                         ShowBill(table.ID);
